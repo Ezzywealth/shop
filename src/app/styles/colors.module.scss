@@ -1,0 +1,7 @@
+$text-link: blueviolet;
+$background-color: orange;
+
+:export {
+	colorLink: $text-link;
+	backgroundColor: $background-color;
+}
