@@ -1,0 +1,24 @@
+@import 'colors.module';
+
+.services_bg {
+	background-color: $filters-bg;
+	padding: 3rem 10%;
+	box-sizing: border-box;
+
+	ul {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		list-style-type: none;
+		gap: 3rem;
+
+		.title {
+			font-weight: 500;
+			font-size: 1.5rem;
+		}
+
+		.description {
+			color: $services-description;
+			font-size: 1rem;
+		}
+	}
+}

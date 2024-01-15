@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/Redux/Store/store';
 import HeroSection from '@/components/Home/HeroSection';
 import ProductIndex from '@/components/Home/ProductSection';
+import ServiceSection from '@/components/Home/Services/Index';
 
 export default function Shop() {
 	const { cart } = useSelector((state: RootState) => state.cart);
@@ -14,6 +15,7 @@ export default function Shop() {
 		<main className=''>
 			<HeroSection />
 			<ProductIndex />
+			<ServiceSection />
 		</main>
 	);
 }
