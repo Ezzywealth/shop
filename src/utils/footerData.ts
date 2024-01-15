@@ -28,12 +28,12 @@ export const help = [
 		link: '',
 	},
 	{
-		id: 1,
+		id: 2,
 		title: 'Returns',
 		link: '',
 	},
 	{
-		id: 1,
+		id: 3,
 		title: 'Privacy Policies',
 		link: '',
 	},

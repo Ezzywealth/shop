@@ -8,12 +8,22 @@
 		display: flex;
 		align-items: center;
 		list-style: none;
+		gap: 0.5rem;
 
 		.bread_links {
 			display: flex;
 			align-items: center;
 			font-size: 1rem;
 			text-transform: capitalize;
+			gap: 1rem;
+		}
+
+		.active_link {
+			color: $primary-color-black;
+		}
+
+		.inactive_link {
+			color: $secondary-text-color;
 		}
 
 		a {

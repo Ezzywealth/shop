@@ -4,7 +4,12 @@ import ViewListIcon from '@/shared/svgs/ViewListIcon';
 import React from 'react';
 import styles from '@/app/styles/product.module.scss';
 
-const Filters = () => {
+type Props = {
+	startCount: number;
+	endCount: number;
+	totalItems: number;
+};
+const Filters = ({ startCount, endCount, totalItems }: Props) => {
 	return (
 		<section className={styles.filters_bg}>
 			<article>
@@ -16,20 +21,22 @@ const Filters = () => {
 				</div>
 
 				<div>
-					<p>Showing 1–16 of 32 results</p>
+					<p>
+						Showing {startCount} – {endCount} of {totalItems} results
+					</p>
 				</div>
 			</article>
 			<article>
 				<div>
 					<label htmlFor='' className={styles.label_input}>
 						Show
-						<input type='text' className={styles.show_input} value={16} />
+						<input type='text' className={styles.show_input} />
 					</label>
 				</div>
 				<div>
 					<label htmlFor='' className={styles.label_input}>
 						Short By
-						<input type='text' className={styles.short_input} value={'Default'} />
+						<input type='text' className={styles.short_input} />
 					</label>
 				</div>
 			</article>
