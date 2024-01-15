@@ -1,0 +1,52 @@
+@import 'colors.module';
+$filters-bg: #faf4f4;
+
+.filters_bg {
+	background-color: $filters-bg;
+	display: flex;
+	margin-top: 3rem;
+	align-items: center;
+	width: 100%;
+	padding: 2rem 4rem;
+	justify-content: space-between;
+	box-sizing: border-box;
+	font-size: 1rem;
+
+	article {
+		display: flex;
+		gap: 1rem;
+
+		div {
+			display: flex;
+			gap: 1rem;
+
+			.filter_text {
+				font-size: 16px;
+				font-weight: 400;
+				color: $primary-color-black;
+			}
+		}
+
+		.label_input {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+
+			.show_input {
+				width: 16px;
+				height: 25px;
+				padding: 0.5rem 1rem;
+			}
+
+			.short_input {
+				height: 25px;
+				padding: 0.5rem 1rem;
+				width: 100px;
+			}
+
+			input:focus {
+				outline: none;
+			}
+		}
+	}
+}
