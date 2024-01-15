@@ -1,0 +1,26 @@
+@import 'colors.module';
+
+.hero_banner {
+	background: url('/assets/images/hero-banner.png'), lightgray 50% / cover no-repeat;
+	// filter: blur(3px);
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: $primary-color-black;
+
+	.hero_item {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 4;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.logo_text {
+		padding-bottom: 0.5rem;
+		font-weight: 500;
+		font-size: 1.75rem;
+	}
+}

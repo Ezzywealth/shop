@@ -1,0 +1,22 @@
+.nav_container {
+	display: flex;
+	justify-content: flex-end;
+	background-color: #fff;
+	width: 100%;
+	padding: 2rem 50px;
+	box-sizing: border-box;
+
+	.nav_section {
+		display: flex;
+		align-items: center;
+		gap: 8rem;
+
+		.navicons_container,
+		.navlinks_container {
+			display: flex;
+			list-style: none;
+			font-size: 16px;
+			gap: 2rem;
+		}
+	}
+}

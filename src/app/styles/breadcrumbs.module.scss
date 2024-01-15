@@ -1,0 +1,24 @@
+@import 'colors.module';
+
+.bread_container {
+	display: flex;
+	align-items: center;
+
+	.crumbs_container {
+		display: flex;
+		align-items: center;
+		list-style: none;
+
+		.bread_links {
+			display: flex;
+			align-items: center;
+			font-size: 1rem;
+			text-transform: capitalize;
+		}
+
+		a {
+			color: $primary-color-black;
+			text-decoration: none;
+		}
+	}
+}

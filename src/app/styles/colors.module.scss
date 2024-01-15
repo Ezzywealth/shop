@@ -1,7 +1,5 @@
-$text-link: blueviolet;
-$background-color: orange;
+$primary-color-black: #000;
 
 :export {
-	colorLink: $text-link;
-	backgroundColor: $background-color;
+	primaryBlack: $primary-color-black;
 }

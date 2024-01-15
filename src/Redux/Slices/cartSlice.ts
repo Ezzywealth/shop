@@ -1,7 +1,8 @@
 import { create } from 'lodash';
 import { createSlice } from '@reduxjs/toolkit';
+import { CartStateSlice } from '@/interfaces/typings';
 
-const initialState = {
+const initialState: CartStateSlice = {
 	cart: [],
 };
 

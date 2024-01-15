@@ -1,7 +1,9 @@
+import Navbar from '@/components/Navbar';
 import CustomProvider from '@/utils/CustomProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-// import './globals.css'
+import './styles/globals.scss';
+import './styles/nav.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,7 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<CustomProvider>
 			<html lang='en'>
-				<body className={inter.className}>{children}</body>
+				<body className={inter.className}>
+					<Navbar />
+					<main>{children}</main>
+				</body>
 			</html>
 		</CustomProvider>
 	);
