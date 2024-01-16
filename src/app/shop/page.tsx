@@ -14,7 +14,7 @@ export default function Shop() {
 	console.log(cart);
 	return (
 		<main className=''>
-			<HeroSection />
+			<HeroSection title='Shop' />
 			<ProductIndex />
 			<ServiceSection />
 			<FooterSection />

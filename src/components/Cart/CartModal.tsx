@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import ItemDeleteIcon from '@/shared/svgs/ItemDeleteIcon';
 import { removeCartItem } from '@/Redux/Slices/cartSlice';
+import Link from 'next/link';
 
 type ModalProps = {
 	isOpen: boolean;
@@ -15,7 +16,7 @@ type ModalProps = {
 
 const CartModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 	const { cart } = useSelector((state: RootState) => state.cart);
-	const [totalPrice, setTotalPrice] = useState(0);
+	const [totalPrice, setTotalPrice] = useState('');
 	const dispatch = useDispatch();
 
 	const handleRemoveItem = (id: number) => {
@@ -25,7 +26,7 @@ const CartModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
 	useEffect(() => {
 		const total = cart.reduce((acc, item) => acc + item.price * +item.quantity, 0);
-		setTotalPrice(total);
+		setTotalPrice(total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 	}, [cart]);
 
 	return (
@@ -44,35 +45,43 @@ const CartModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 						</section>
 
 						<section>
-							<ul className={styles.cart_items}>
-								{cart.map((item) => (
-									<li key={item.id} className={styles.cart_item}>
-										<div>
-											<Image src={item.thumbnail} width={60} height={40} alt={item.title} />
-										</div>
-										<div>
-											<h3>{item.title}</h3>
-											<p className={styles.cart_item_price}>
-												{item.quantity} X <span className={styles.cart_amount}>${item.price.toFixed(2)}</span>
-											</p>
-										</div>
-										<span onClick={() => handleRemoveItem(item.id)}>
-											<ItemDeleteIcon />
-										</span>
-									</li>
-								))}
-							</ul>
+							{cart.length < 1 ? (
+								<p className={styles.empty_cart}>Cart is currently empty !!!</p>
+							) : (
+								<ul className={styles.cart_items}>
+									{cart.map((item) => (
+										<li key={item.id} className={styles.cart_item}>
+											<div>
+												<Image src={item.thumbnail} width={60} height={40} alt={item.title} />
+											</div>
+											<div>
+												<h3>{item.title}</h3>
+												<p className={styles.cart_item_price}>
+													{item.quantity} X <span className={styles.cart_amount}>${item.price.toFixed(2)}</span>
+												</p>
+											</div>
+											<span onClick={() => handleRemoveItem(item.id)}>
+												<ItemDeleteIcon />
+											</span>
+										</li>
+									))}
+								</ul>
+							)}
 						</section>
 					</section>
 					<section className={styles.modal_bottom}>
 						<div className={styles.total_price}>
 							<p className={styles.amount_title}>subtotal</p>
-							<p className={styles.amount}>${totalPrice?.toFixed(2) || 0.0}</p>
+							<p className={styles.amount}>${totalPrice || 0.0}</p>
 						</div>
 						<hr />
 						<div className={styles.buttons}>
-							<button>View cart</button>
-							<button>Checkout</button>
+							<Link href='/cart'>
+								<button onClick={onClose}>View cart</button>
+							</Link>
+							<Link href='/checkout'>
+								<button onClick={onClose}>Checkout</button>
+							</Link>
 						</div>
 					</section>
 				</div>

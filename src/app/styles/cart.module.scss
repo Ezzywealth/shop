@@ -1,0 +1,64 @@
+@import 'colors.module';
+/* CartTable.module.scss */
+.cart_table_container {
+	display: flex;
+	gap: 2rem;
+	align-items: flex-start;
+	padding: 5rem 10%;
+
+	.cart_table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.cart_table thead {
+		background-color: $cart-total-bg-color; /* Green background color for the header */
+	}
+
+	.cart_table th,
+	.cart_table td {
+		padding: 12px;
+		text-align: left;
+	}
+
+	.totals_container {
+		background-color: $cart-total-bg-color;
+		padding: 1rem 2rem 3rem 2rem;
+		min-width: 350px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+
+		.subtotal {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 1rem;
+			gap: 2rem;
+			font-weight: 500;
+
+			.total_amount {
+				color: $price-text-color;
+				font-weight: 500;
+				font-size: calc(18 / 16 * 1rem);
+			}
+
+			.subtotal_amount {
+				color: $secondary-text-color;
+				font-size: calc(14 / 16 * 1rem);
+			}
+		}
+
+		button {
+			padding: 0.5rem 2rem;
+			border: 1px solid $primary-color-black;
+			border-radius: 15px;
+			background-color: transparent;
+			color: $primary-color-black;
+			font-size: 1.2rem;
+			font-weight: 600;
+			cursor: pointer;
+		}
+	}
+}
