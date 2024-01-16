@@ -31,6 +31,7 @@ export type ProductProp = {
 	stock: number;
 	thumbnail: string;
 	title: string;
+	quantity?: number;
 };
 
 export interface PaginationProps {

@@ -1,3 +1,5 @@
+@import 'colors.module';
+
 .nav_container {
 	display: flex;
 	justify-content: flex-end;
@@ -17,6 +19,26 @@
 			list-style: none;
 			font-size: 16px;
 			gap: 2rem;
+		}
+	}
+
+	.cart_container {
+		position: relative;
+
+		.cart_count {
+			position: absolute;
+			top: -10px;
+			right: -8px;
+			background-color: $active_pag_bg;
+			color: $primary-color-black;
+			width: 1.2rem;
+			height: 1.2rem;
+			border-radius: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 0.8rem;
+			font-weight: 700;
 		}
 	}
 }

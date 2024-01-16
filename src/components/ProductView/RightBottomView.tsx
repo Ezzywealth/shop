@@ -6,14 +6,14 @@ import LinkedIn from '@/shared/svgs/LinkedIn';
 import TwitterIcon from '@/shared/svgs/TwitterIcon';
 import { ProductProp } from '@/interfaces/typings';
 import HeartIcon from '@/shared/svgs/HeartIcon';
+import useProductDetailsHook from './hooks/useProductDetailsHook';
 
 type Props = {
 	productDetails: ProductProp | null;
 };
 
 const RightBottomView = ({ productDetails }: Props) => {
-	const [selectedColor, setSelectedColor] = useState<string>('');
-	const colors = ['#000', '#f00', '#0f0', '#00f'];
+	const { selectedColor, setSelectedColor, colors, quantity, setQuantity, handleIncrease, handleDecrease, handleAddToCart } = useProductDetailsHook();
 
 	return (
 		<>
@@ -30,11 +30,13 @@ const RightBottomView = ({ productDetails }: Props) => {
 
 			<div className={styles.cart_quantity}>
 				<div className={styles.quantity_container}>
-					<span>-</span>
-					<input type='number' defaultValue={1} />
-					<span>+</span>
+					<span onClick={handleDecrease}>-</span>
+					<input type='text' value={quantity} />
+					<span onClick={handleIncrease}>+</span>
 				</div>
-				<button>Add to Cart</button>
+				<button disabled={+quantity < 1} onClick={() => handleAddToCart(productDetails)}>
+					Add to Cart
+				</button>
 			</div>
 			<hr className={styles.divider} />
 

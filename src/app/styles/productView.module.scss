@@ -11,6 +11,7 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 3rem;
 		padding: 4rem 10%;
+		box-sizing: border-box;
 	}
 
 	.productViewLeft {
@@ -42,6 +43,7 @@
 			display: flex;
 			gap: 1rem;
 			color: $secondary-text-color;
+			margin: 0.5rem 0;
 
 			.texts {
 				font-size: calc(13 / 16 * 1rem);
@@ -78,12 +80,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		font-size: 16px;
 	}
 
 	.star {
 		margin-right: 4px;
 		color: #ccc;
+		font-size: 20px;
 	}
 
 	.star.filled {
@@ -162,6 +164,7 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				cursor: pointer;
 			}
 		}
 	}
@@ -177,7 +180,7 @@
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		margin-top: 1rem;
+		margin-top: 2rem;
 
 		.quantity_container {
 			display: flex;
@@ -186,10 +189,15 @@
 			padding: 0.4rem 0.5rem;
 			width: auto;
 
+			span {
+				cursor: pointer;
+			}
+
 			input {
 				border: none;
 				width: 50px;
 				text-align: center;
+				font-size: 1.2rem;
 			}
 
 			input:focus {
@@ -234,6 +242,10 @@
 
 		.description_texts {
 			padding: 2rem 8%;
+
+			p {
+				margin-top: 1rem;
+			}
 		}
 
 		p {
@@ -247,6 +259,8 @@
 			flex-wrap: wrap;
 			gap: 1rem;
 			margin-top: 2rem;
+			margin-bottom: 2rem;
+			box-sizing: border-box;
 		}
 	}
 
@@ -254,6 +268,7 @@
 
 	.related_products_container {
 		padding: 2rem 10%;
+
 		.related_images {
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
@@ -264,6 +279,9 @@
 
 		a {
 			color: $primary-color-black;
+			text-decoration: none;
+			text-transform: capitalize;
+			font-size: calc(14 / 16 * 1rem);
 		}
 
 		.view_container {

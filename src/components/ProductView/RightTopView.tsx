@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import StarRating from './StarRating';
 import { ProductProp } from '@/interfaces/typings';
 import styles from '@/app/styles/productView.module.scss';
+import useProductDetailsHook from './hooks/useProductDetailsHook';
 type Props = {
 	productDetails: ProductProp | null;
 };
 const RightTopView = ({ productDetails }: Props) => {
-	const [selectedSize, setSelectedSize] = useState<string>('');
-	const sizes = ['XS', 'L', 'XL'];
+	const { selectedSize, setSelectedSize, sizes } = useProductDetailsHook();
 	return (
 		<div>
 			<h2 className={styles.product_title}>{productDetails?.title}</h2>
