@@ -2,12 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from '@/app/styles/nav.module.scss';
 import CloseCartIcon from '@/shared/svgs/CloseCartIcon';
-import { RootState } from '@/Redux/Store/store';
-import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import ItemDeleteIcon from '@/shared/svgs/ItemDeleteIcon';
-import { removeCartItem } from '@/Redux/Slices/cartSlice';
 import Link from 'next/link';
+import useCartHook from './hooks/useCartHook';
 
 type ModalProps = {
 	isOpen: boolean;
@@ -15,19 +13,7 @@ type ModalProps = {
 };
 
 const CartModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
-	const { cart } = useSelector((state: RootState) => state.cart);
-	const [totalPrice, setTotalPrice] = useState('');
-	const dispatch = useDispatch();
-
-	const handleRemoveItem = (id: number) => {
-		console.log(id);
-		dispatch(removeCartItem(id));
-	};
-
-	useEffect(() => {
-		const total = cart.reduce((acc, item) => acc + item.price * +item.quantity, 0);
-		setTotalPrice(total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
-	}, [cart]);
+	const { handleRemoveItem, totalPrice, cart } = useCartHook();
 
 	return (
 		<div className={isOpen ? styles.open_modal : styles.close_modal}>

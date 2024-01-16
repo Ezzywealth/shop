@@ -1,5 +1,30 @@
 @import 'colors.module';
 /* CartTable.module.scss */
+
+.empty_cart_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 9rem 10%;
+
+	.empty_cart {
+		font-size: 2rem;
+		font-weight: 500;
+	}
+
+	button {
+		padding: 0.5rem 2rem;
+		border: 1px solid $primary-color-black;
+		border-radius: 15px;
+		background-color: transparent;
+		color: $primary-color-black;
+		font-size: 1.2rem;
+		font-weight: 600;
+		cursor: pointer;
+	}
+}
+
 .cart_table_container {
 	display: flex;
 	gap: 2rem;
@@ -12,19 +37,52 @@
 	}
 
 	.cart_table thead {
-		background-color: $cart-total-bg-color; /* Green background color for the header */
+		background-color: $cart-total-bg-color;
+		font-weight: 500;
 	}
 
 	.cart_table th,
 	.cart_table td {
 		padding: 12px;
-		text-align: left;
+		text-align: center;
+		font-size: 1rem;
+	}
+
+	tbody {
+		color: $secondary-text-color;
+
+		.prize {
+			color: $primary-color-black;
+		}
+
+		.delete_icon {
+			cursor: pointer;
+		}
+	}
+
+	.quantity_value {
+		height: 100%;
+
+		span {
+			border: 1px solid $secondary-text-color;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 16px;
+			width: 16px;
+			padding: 0.2rem;
+			font-size: 14px;
+			color: $primary-color-black;
+			transform: translateX(50%);
+			border-radius: 5px;
+		}
 	}
 
 	.totals_container {
 		background-color: $cart-total-bg-color;
 		padding: 1rem 2rem 3rem 2rem;
-		min-width: 350px;
+		box-sizing: border-box;
+		min-width: 300px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

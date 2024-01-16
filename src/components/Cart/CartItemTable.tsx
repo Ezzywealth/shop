@@ -2,8 +2,15 @@
 import React from 'react';
 import styles from '@/app/styles/cart.module.scss';
 import DeleteIcon from '@/shared/svgs/DeleteIcon';
+import { ProductProp } from '@/interfaces/typings';
+import Image from 'next/image';
+import useCartHook from './hooks/useCartHook';
 
-const CartItemTable = () => {
+type Props = {
+	cart: ProductProp[];
+};
+const CartItemTable = ({ cart }: Props) => {
+	const { handleRemoveItem, totalPrice } = useCartHook();
 	return (
 		<table className={styles.cart_table}>
 			<thead>
@@ -17,28 +24,24 @@ const CartItemTable = () => {
 				</tr>
 			</thead>
 			<tbody>
-				{/* Sample cart items */}
-				<tr>
-					<td>Image 1</td>
-					<td>Product A</td>
-					<td>$20.00</td>
-					<td>2</td>
-					<td>$40.00</td>
-					<td>
-						<DeleteIcon />
-					</td>
-				</tr>
-				<tr>
-					<td>Image 2</td>
-					<td>Product B</td>
-					<td>$15.00</td>
-					<td>3</td>
-					<td>$45.00</td>
-					<td>
-						<DeleteIcon />
-					</td>
-				</tr>
-				{/* Add more rows as needed */}
+				{cart.map((item) => (
+					<tr key={item.id}>
+						<td>
+							<Image height={40} width={40} src={item.thumbnail} alt={item.title} />
+						</td>
+						<td>{item.title}</td>
+						<td>${item.price}</td>
+						<td className={styles.quantity_value}>
+							<span>{item.quantity}</span>
+						</td>
+						<td className={styles.prize}>${(item.price * +item.quantity).toFixed(2)}</td>
+						<td>
+							<span onClick={() => handleRemoveItem(item.id)} className={styles.delete_icon}>
+								<DeleteIcon />
+							</span>
+						</td>
+					</tr>
+				))}
 			</tbody>
 		</table>
 	);
