@@ -1,28 +1,47 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import { fetchProductDetails } from '@/Redux/Slices/productslice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/Redux/Store/store';
 import Breadcrumb from '@/components/BreadCrumbs';
+import ImageGallery from '@/components/ProductView/ImageGallery';
+import styles from '@/app/styles/productView.module.scss';
+import RelatedSection from '@/components/ProductView/RelatedSection';
+import DescriptionSection from '@/components/ProductView/DescriptionSection';
+import FooterSection from '@/components/Footer/FooterSection';
+import RightTopView from '@/components/ProductView/RightTopView';
+import RightBottomView from '@/components/ProductView/RightBottomView';
+
 const ProductDetails = () => {
 	const dispatch = useDispatch();
-	const params = useParams();
-	const { productDetails } = useSelector((state: RootState) => state.product);
+	const { productDetails, products } = useSelector((state: RootState) => state.product);
 	const searchParams = useSearchParams();
 	const id = searchParams.get('id');
-	const { slug } = params;
-
-	console.log(slug);
 
 	useEffect(() => {
 		dispatch(fetchProductDetails(id));
 	}, [id]);
 
 	return (
-		<div>
-			<Breadcrumb />
-			<h2>{id}</h2>
+		<div className={styles.productDetails_container}>
+			<div className={styles.breadcrumb_container}>
+				<Breadcrumb />
+			</div>
+			<div className={styles.productView}>
+				<div className={styles.productViewLeft}>
+					<ImageGallery images={productDetails?.images || []} mainImage={productDetails?.thumbnail || ''} />
+				</div>
+				<div className={styles.productViewRight}>
+					<RightTopView productDetails={productDetails} />
+					<RightBottomView productDetails={productDetails} />
+				</div>
+			</div>
+			<hr />
+			<DescriptionSection />
+			<hr />
+			<RelatedSection />
+			<FooterSection />
 		</div>
 	);
 };

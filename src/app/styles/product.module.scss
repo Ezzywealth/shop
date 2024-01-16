@@ -43,6 +43,10 @@
 				width: 100px;
 			}
 
+			input {
+				border: none;
+			}
+
 			input:focus {
 				outline: none;
 			}
@@ -77,4 +81,27 @@
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+	justify-content: center;
+	padding: 1rem 0;
+	margin-bottom: 3rem;
+
+	ul {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	button {
+		padding: 0.5rem 1rem;
+		border: none;
+		font-size: 1rem;
+	}
+
+	.pag_btn {
+		background-color: $inactive_pag_bg;
+	}
+
+	.active_btn {
+		background-color: $active_pag_bg;
+	}
 }
