@@ -13,7 +13,7 @@ type Props = {
 };
 
 const RightBottomView = ({ productDetails }: Props) => {
-	const { selectedColor, setSelectedColor, colors, quantity, setQuantity, handleIncrease, handleDecrease, handleAddToCart } = useProductDetailsHook();
+	const { selectedColor, setSelectedColor, colors, quantity, handleIncrease, handleDecrease, handleAddToCart } = useProductDetailsHook();
 
 	return (
 		<>
@@ -34,7 +34,13 @@ const RightBottomView = ({ productDetails }: Props) => {
 					<input type='text' value={quantity} />
 					<span onClick={handleIncrease}>+</span>
 				</div>
-				<button disabled={+quantity < 1} onClick={() => handleAddToCart(productDetails)}>
+				<button
+					disabled={+quantity < 1}
+					onClick={() => {
+						if (productDetails?.stock && productDetails?.stock >= +quantity) {
+							handleAddToCart(productDetails);
+						}
+					}}>
 					Add to Cart
 				</button>
 			</div>

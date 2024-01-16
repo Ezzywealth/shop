@@ -14,17 +14,16 @@ const useProductDetailsHook = () => {
 	// decrease the quantity count by 1
 	const handleDecrease = () => {
 		if (+quantity === 0) return;
-		setQuantity((+quantity - 1).toString());
+		setQuantity((prev) => (+prev - 1).toString());
 	};
 
 	// increase the quantity count by 1
 	const handleIncrease = () => {
-		setQuantity((+quantity + 1).toString());
+		setQuantity((prev) => (+prev + 1).toString());
 	};
 
 	const handleAddToCart = (item: ProductProp | null) => {
 		if (!item) return;
-
 		const obj = {
 			...item,
 			quantity: +quantity,

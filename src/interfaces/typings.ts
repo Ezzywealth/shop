@@ -1,5 +1,6 @@
 export type CartStateSlice = {
-	cart: any[];
+	cart: ProductProp[];
+	showCartModal: boolean;
 };
 
 export type ProductStateSlice = {
@@ -31,7 +32,7 @@ export type ProductProp = {
 	stock: number;
 	thumbnail: string;
 	title: string;
-	quantity?: number;
+	quantity: number;
 };
 
 export interface PaginationProps {
