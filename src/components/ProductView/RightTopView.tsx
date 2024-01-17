@@ -11,7 +11,7 @@ const RightTopView = ({ productDetails }: Props) => {
 	return (
 		<div>
 			<h2 className={styles.product_title}>{productDetails?.title}</h2>
-			<p className={styles.product_price}>${productDetails?.price.toFixed(2)}</p>
+			<p className={styles.product_price}>Rs. {productDetails?.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
 			<span className={styles.ratings_container}>
 				<StarRating rating={productDetails?.rating || 0} /> | <span className={styles.texts}>5 Customer Review</span>
 			</span>

@@ -15,10 +15,13 @@ const CheckoutScreen = () => {
 	return (
 		<div>
 			<HeroSection title='Checkout' />
-			<section className={styles.checkout_container}>
-				<CheckoutForm />
-				<CartSummary />
-			</section>
+			<main className={styles.checkout}>
+				<h1 className={styles.billing_details}>Billing details</h1>
+				<section className={styles.checkout_container}>
+					<CheckoutForm />
+					<CartSummary />
+				</section>
+			</main>
 			<ServiceSection />
 			<FooterSection />
 		</div>

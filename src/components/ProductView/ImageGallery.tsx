@@ -31,7 +31,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, mainImage }) => {
 					<Image height={80} width={80} key={index} src={image} alt={`Thumbnail ${index + 1}`} onClick={() => handleImageClick(image)} className={` ${loading && 'shimmer'} ${selectedImage === image ? styles.selectedThumbnail : styles.thumbnail}`} onLoadingComplete={() => setLoading(false)} />
 				))}
 			</div>
-			<Image src={selectedImage || ''} alt='Main Product' height={300} width={500} layout='responsive' className={` ${mainImageLoading && 'shimmer'}`} onLoadingComplete={() => setMainImageLoading(false)} />
+			<Image src={selectedImage || ''} alt='Main Product' height={400} width={400} className={` ${mainImageLoading && 'shimmer'}`} onLoadingComplete={() => setMainImageLoading(false)} />
 		</div>
 	);
 };

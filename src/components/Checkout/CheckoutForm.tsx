@@ -20,7 +20,13 @@ const CheckoutForm = () => {
 				</div>
 				<div className={styles.form_group}>
 					<label htmlFor='country'>Country / Region</label>
-					<input type='text' id='country' className={styles.input_field} />
+					<select name='' id='' className={styles.input_field}>
+						<option value=''>Select Country</option>
+						<option value=''>Nepal</option>
+						<option value=''>India</option>
+						<option value=''>China</option>
+						<option value=''>USA</option>
+					</select>
 				</div>
 				<div className={styles.form_group}>
 					<label htmlFor='streetAddress'>Street Address</label>
@@ -32,7 +38,16 @@ const CheckoutForm = () => {
 				</div>
 				<div className={styles.form_group}>
 					<label htmlFor='province'>Province</label>
-					<input type='text' id='province' className={styles.input_field} />
+					<select name='' id='' className={styles.input_field}>
+						<option value=''>Select Province</option>
+						<option value=''>Province 1</option>
+						<option value=''>Province 2</option>
+						<option value=''>Province 3</option>
+						<option value=''>Province 4</option>
+						<option value=''>Province 5</option>
+						<option value=''>Province 6</option>
+						<option value=''>Province 7</option>
+					</select>
 				</div>
 				<div className={styles.form_group}>
 					<label htmlFor='zipCode'>ZIP Code</label>

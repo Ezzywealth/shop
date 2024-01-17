@@ -14,7 +14,7 @@ const Breadcrumb = () => {
 		<nav className={styles.bread_container}>
 			<ul className={styles.crumbs_container}>
 				<li>
-					<Link className={styles.inactive_link} href='/'>
+					<Link className={styles.home_link} href='/'>
 						Home
 					</Link>
 				</li>
