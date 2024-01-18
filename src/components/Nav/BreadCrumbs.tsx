@@ -23,7 +23,7 @@ const Breadcrumb = () => {
 						<ArrowNext />
 						{index === pathSegments.length - 1 ? (
 							<Link className={styles.active_link} href={`/${pathSegments.slice(0, index + 1).join('/')}${id ? `?id=${id}` : ''}`}>
-								{segment}
+								{segment.length > 15 ? segment.slice(0, 15) + '...' : segment}
 							</Link>
 						) : (
 							<Link className={styles.inactive_link} href={`/${pathSegments.slice(0, index + 1).join('/')}`}>

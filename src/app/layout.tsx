@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Nav/Navbar';
 import CustomProvider from '@/utils/CustomProvider';
 import type { Metadata } from 'next';
 import './styles/globals.scss';

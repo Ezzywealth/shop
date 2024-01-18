@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '@/app/styles/herosection.module.scss';
 import Image from 'next/image';
-import Breadcrumb from '../BreadCrumbs';
+import Breadcrumb from '../Nav/BreadCrumbs';
 
 type Props = {
 	title: string;

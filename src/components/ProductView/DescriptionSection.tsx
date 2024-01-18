@@ -16,8 +16,12 @@ const DescriptionSection = () => {
 				</p>
 			</div>
 			<div className={styles.description_images}>
-				<Image src={productDetails?.images[0] || ''} alt='product image' width={500} height={300} />
-				<Image src={productDetails?.images[1] || ''} alt='product image' width={500} height={300} />
+				<div className={styles.description_images_div}>
+					<Image src={productDetails?.images[0] || ''} alt='product image' layout='fill' />
+				</div>
+				<div className={styles.description_images_div}>
+					<Image src={productDetails?.images[1] || ''} alt='product image' layout='fill' />
+				</div>
 			</div>
 		</section>
 	);

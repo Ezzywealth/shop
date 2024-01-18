@@ -20,7 +20,7 @@ const Filters = ({ startCount, endCount, totalItems }: Props) => {
 					<ViewListIcon />
 				</div>
 
-				<div>
+				<div className={styles.showing}>
 					<p>
 						Showing {startCount} – {endCount} of {totalItems} results
 					</p>
@@ -33,9 +33,9 @@ const Filters = ({ startCount, endCount, totalItems }: Props) => {
 						<input type='text' className={styles.show_input} />
 					</label>
 				</div>
-				<div>
+				<div className={styles.short_by}>
 					<label htmlFor='' className={styles.label_input}>
-						Short By
+						<span>Short By</span>
 						<input type='text' className={styles.short_input} />
 					</label>
 				</div>

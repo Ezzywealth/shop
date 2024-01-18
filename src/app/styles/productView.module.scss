@@ -1,25 +1,59 @@
 // styles/ProductView.module.scss
 @import 'colors.module';
+@import '_breakpoints.scss';
+
+.products_loading_container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	z-index: 10000;
+}
 
 .productDetails_container {
+	// styles for the loading spinner container
+
 	.breadcrumb_container {
-		padding: 0rem 10%;
+		@include xs {
+			padding: 0rem 1rem;
+		}
+
+		@include lg {
+			padding: 0rem 10%;
+		}
 	}
 
 	.productView {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
 		gap: 3rem;
-		padding: 4rem 10%;
 		box-sizing: border-box;
+
+		@include xs {
+			grid-template-columns: 1fr;
+			padding: 2rem 1rem;
+		}
+
+		@include lg {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			padding: 2rem;
+		}
+
+		@include xl {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			padding: 4rem 10%;
+		}
 	}
 
 	.productViewLeft {
-		/* Styles for the left section */
+		box-sizing: border-box;
 	}
 
 	.productViewRight {
-		/* Styles for the right section */
+		box-sizing: border-box;
 		.product_title {
 			font-size: 1.5rem;
 			font-weight: 500;
@@ -56,22 +90,60 @@
 		gap: 1rem;
 	}
 
+	.main_image_container_sm {
+		position: relative;
+		box-sizing: border-box;
+
+		@include xs {
+			display: block;
+			height: 200px;
+			width: 100%;
+		}
+
+		@include md {
+			display: block;
+			height: 400px;
+			width: 90%;
+		}
+
+		@include lg {
+			display: none;
+		}
+	}
+
+	.main_image_container_lg {
+		@include xs {
+			display: none;
+		}
+
+		@include lg {
+			display: block;
+		}
+	}
+
 	.thumbnailContainer {
-		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		gap: 1rem;
+		width: 300px;
 		gap: 10px;
+
+		@include xs {
+			display: none;
+		}
+
+		@include lg {
+			display: flex;
+		}
 	}
 
 	.thumbnail {
-		width: 70px;
-		height: 70px;
 		cursor: pointer;
+		min-width: 50px;
 	}
 
 	.selectedThumbnail {
 		border: 2px solid #ccc;
+		transform: scale(1.1);
 	}
 
 	/***** Star rating styles *****/
@@ -238,11 +310,15 @@
 	}
 
 	.description_container {
-		padding: 2rem 10%;
+		@include xs {
+			padding: 2rem 1rem;
+		}
+
+		@include lg {
+			padding: 2rem 10%;
+		}
 
 		.description_texts {
-			padding: 2rem 8%;
-
 			p {
 				margin-top: 1rem;
 			}
@@ -254,13 +330,27 @@
 
 		.description_images {
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
 			box-sizing: border-box;
 			flex-wrap: wrap;
 			gap: 1rem;
 			margin-top: 2rem;
 			margin-bottom: 2rem;
 			box-sizing: border-box;
+			width: 100%;
+
+			.description_images_div {
+				position: relative;
+				height: 280px;
+			}
+
+			@include xs {
+				grid-template-columns: repeat(1, 1fr);
+				padding: 2rem 1rem;
+			}
+
+			@include lg {
+				grid-template-columns: repeat(2, 1fr);
+			}
 		}
 	}
 
@@ -268,13 +358,36 @@
 
 	.related_products_container {
 		padding: 2rem 10%;
+		box-sizing: border-box;
 
 		.related_images {
 			display: grid;
-			grid-template-columns: repeat(4, 1fr);
 			gap: 2rem;
 			margin-top: 2rem;
 			list-style: none;
+			box-sizing: border-box;
+
+			.related_image_container {
+				position: relative;
+				height: 200px;
+				// width: 150;
+			}
+
+			@include xs {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			@include md {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@include lg {
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			@include xl {
+				grid-template-columns: repeat(4, 1fr);
+			}
 		}
 
 		a {

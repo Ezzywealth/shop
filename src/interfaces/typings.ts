@@ -7,6 +7,8 @@ export type ProductStateSlice = {
 	products: ProductProp[];
 	productDetails: null | ProductProp;
 	filteredProducts: ProductProp[];
+	relatedProducts: ProductProp[];
+	relatedProductsLoading: boolean;
 	productsLoading: boolean;
 	productsErrors: string;
 	productLoading: boolean;

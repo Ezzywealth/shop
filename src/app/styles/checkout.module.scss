@@ -1,14 +1,28 @@
 @import 'colors.module';
+@import '_breakpoints.scss';
 
 .checkout {
-	padding: 4rem 10%;
+	@include xs {
+		padding: 2rem 1rem;
+	}
+
+	@include lg {
+		padding: 4rem 10%;
+	}
 
 	.checkout_container {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
 		justify-content: space-between;
 		margin-top: 20px;
 		gap: 5rem;
+
+		@include xs {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+
+		@include lg {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
 	}
 
 	.billing_details {
@@ -25,9 +39,17 @@
 
 		.name {
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
 			margin-bottom: 20px;
-			gap: 3rem;
+
+			@include xs {
+				gap: 1rem;
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			@include lg {
+				gap: 2rem;
+				grid-template-columns: repeat(2, 1fr);
+			}
 		}
 
 		.form_group {

@@ -1,15 +1,40 @@
 @import 'colors.module';
+@import '_breakpoints.scss';
 
 .services_bg {
 	background-color: $filters-bg;
-	padding: 3rem 10%;
+
 	box-sizing: border-box;
+
+	@include xs {
+		padding: 2rem 1rem;
+	}
+
+	@include base {
+		padding: 2rem 1.5rem;
+	}
+
+	@include lg {
+		padding: 3rem 10%;
+	}
 
 	ul {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+
 		list-style-type: none;
 		gap: 3rem;
+
+		@include xs {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+
+		@include base {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@include lg {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
 
 		.title {
 			font-weight: 500;

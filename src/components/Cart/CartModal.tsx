@@ -37,16 +37,19 @@ const CartModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 								<ul className={styles.cart_items}>
 									{cart.map((item) => (
 										<li key={item.id} className={styles.cart_item}>
-											<div>
-												<Image src={item.thumbnail} width={60} height={40} alt={item.title} />
+											<div className={styles.cart_item_left}>
+												<div>
+													<Image src={item.thumbnail} width={50} height={40} alt={item.title} />
+												</div>
+												<div className={styles.cart_item_price_container}>
+													<h3 className={styles.cart_item_title}>{item.title.length > 20 ? `${item.title.slice(0, 20)}...` : item.title}</h3>
+
+													<p className={styles.cart_item_price}>
+														{item.quantity} <span> X</span> <span className={styles.cart_amount}>Rs. {item.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+													</p>
+												</div>
 											</div>
-											<div>
-												<h3>{item.title}</h3>
-												<p className={styles.cart_item_price}>
-													{item.quantity} X <span className={styles.cart_amount}>${item.price.toFixed(2)}</span>
-												</p>
-											</div>
-											<span onClick={() => handleRemoveItem(item.id)}>
+											<span className={styles.cart_item_delete_icon} onClick={() => handleRemoveItem(item.id)}>
 												<ItemDeleteIcon />
 											</span>
 										</li>
@@ -58,7 +61,7 @@ const CartModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 					<section className={styles.modal_bottom}>
 						<div className={styles.total_price}>
 							<p className={styles.amount_title}>subtotal</p>
-							<p className={styles.amount}>${totalPrice || 0.0}</p>
+							<p className={styles.amount}>Rs. {totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ',') || 0.0}</p>
 						</div>
 						<hr />
 						<div className={styles.buttons}>

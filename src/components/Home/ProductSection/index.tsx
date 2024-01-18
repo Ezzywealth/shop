@@ -8,7 +8,7 @@ import Pagination from '@/components/Pagination/Pagination';
 
 const ProductIndex = () => {
 	const dispatch = useDispatch();
-	const { products, filteredProducts, itemsPerPage, currentPage, totalPages, noOfItems, startCount, endCount } = useSelector((state: RootState) => state.product);
+	const { products, filteredProducts, itemsPerPage, currentPage, totalPages, noOfItems, startCount, endCount, productsLoading } = useSelector((state: RootState) => state.product);
 
 	useEffect(() => {
 		dispatch(fetchProducts());
@@ -22,7 +22,7 @@ const ProductIndex = () => {
 	return (
 		<div>
 			<Filters startCount={startCount} endCount={endCount} totalItems={products.length} />
-			<Products products={filteredProducts} />
+			<Products products={filteredProducts} productsLoading={productsLoading} />
 			<Pagination currentPage={currentPage} totalPages={totalPages} totalItems={noOfItems} onPageChange={handlePagination} />
 		</div>
 	);

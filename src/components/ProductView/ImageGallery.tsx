@@ -28,10 +28,17 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, mainImage }) => {
 		<div className={styles.imageGallery}>
 			<div className={styles.thumbnailContainer}>
 				{imageGallery?.map((image, index) => (
-					<Image height={80} width={80} key={index} src={image} alt={`Thumbnail ${index + 1}`} onClick={() => handleImageClick(image)} className={` ${loading && 'shimmer'} ${selectedImage === image ? styles.selectedThumbnail : styles.thumbnail}`} onLoadingComplete={() => setLoading(false)} />
+					<div key={index} className={styles.thumbnail_container}>
+						<Image height={60} width={60} src={image} alt={`Thumbnail ${index + 1}`} onClick={() => handleImageClick(image)} className={` ${loading && 'shimmer'} ${selectedImage === image ? styles.selectedThumbnail : styles.thumbnail}`} onLoadingComplete={() => setLoading(false)} />
+					</div>
 				))}
 			</div>
-			<Image src={selectedImage || ''} alt='Main Product' height={400} width={400} className={` ${mainImageLoading && 'shimmer'}`} onLoadingComplete={() => setMainImageLoading(false)} />
+			<div className={styles.main_image_container_sm}>
+				<Image src={selectedImage || ''} alt='Main Product' layout='fill' className={` ${mainImageLoading && 'shimmer'}`} onLoadingComplete={() => setMainImageLoading(false)} />
+			</div>
+			<div className={styles.main_image_container_lg}>
+				<Image src={selectedImage || ''} alt='Main Product' height={400} width={400} className={` ${mainImageLoading && 'shimmer'}`} onLoadingComplete={() => setMainImageLoading(false)} />
+			</div>
 		</div>
 	);
 };

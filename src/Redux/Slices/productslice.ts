@@ -1,15 +1,17 @@
 import { create } from 'lodash';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { ProductStateSlice } from '@/interfaces/typings';
+import { ProductProp, ProductStateSlice } from '@/interfaces/typings';
 import axios from 'axios';
 
 const initialState: ProductStateSlice = {
 	products: [],
 	productDetails: null,
+	relatedProducts: [],
 	filteredProducts: [],
+	relatedProductsLoading: false,
 	productsLoading: false,
 	productsErrors: '',
-	productLoading: false,
+	productLoading: true,
 	productError: '',
 	itemsPerPage: 16,
 	currentPage: 1,
@@ -22,14 +24,19 @@ const initialState: ProductStateSlice = {
 
 export const fetchProducts = createAsyncThunk('fetchProducts', async () => {
 	const { data } = await axios.get('https://dummyjson.com/products?limit=48');
-	console.log(data.products);
 	return data.products;
 });
 
-export const fetchProductDetails = createAsyncThunk('fetchProductDetails', async (id) => {
+export const fetchProductDetails = createAsyncThunk('fetchProductDetails', async (id, thunkApi) => {
 	const { data } = await axios.get(`https://dummyjson.com/products/${id}`);
-	console.log(data);
+	thunkApi.dispatch(fetchRelatedProducts(data.category));
 	return data;
+});
+
+export const fetchRelatedProducts = createAsyncThunk('fetchRelatedProducts', async (category: string) => {
+	const { data } = await axios.get('https://dummyjson.com/products?limit=48');
+	const relatedProducts = data.products.filter((product: ProductProp) => product.category === category);
+	return relatedProducts;
 });
 
 const productSlice = createSlice({
@@ -76,6 +83,17 @@ const productSlice = createSlice({
 			state.productLoading = false;
 			state.productDetails = null;
 			state.productError = '';
+		});
+		builders.addCase(fetchRelatedProducts.pending, (state, action) => {
+			state.relatedProductsLoading = true;
+		});
+		builders.addCase(fetchRelatedProducts.fulfilled, (state, action) => {
+			state.relatedProductsLoading = false;
+			state.relatedProducts = action.payload;
+		});
+		builders.addCase(fetchRelatedProducts.rejected, (state, action) => {
+			state.relatedProductsLoading = false;
+			state.relatedProducts = [];
 		});
 	},
 });

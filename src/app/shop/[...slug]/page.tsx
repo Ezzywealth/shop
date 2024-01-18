@@ -4,7 +4,7 @@ import { useParams, useSearchParams } from 'next/navigation';
 import { fetchProductDetails } from '@/Redux/Slices/productslice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/Redux/Store/store';
-import Breadcrumb from '@/components/BreadCrumbs';
+import Breadcrumb from '@/components/Nav/BreadCrumbs';
 import ImageGallery from '@/components/ProductView/ImageGallery';
 import styles from '@/app/styles/productView.module.scss';
 import RelatedSection from '@/components/ProductView/RelatedSection';
@@ -12,10 +12,12 @@ import DescriptionSection from '@/components/ProductView/DescriptionSection';
 import FooterSection from '@/components/Footer/FooterSection';
 import RightTopView from '@/components/ProductView/RightTopView';
 import RightBottomView from '@/components/ProductView/RightBottomView';
+import { ToastContainer, toast } from 'react-toastify';
+import { CirclesWithBar } from 'react-loader-spinner';
 
 const ProductDetails = () => {
 	const dispatch = useDispatch();
-	const { productDetails, products } = useSelector((state: RootState) => state.product);
+	const { productDetails, productLoading } = useSelector((state: RootState) => state.product);
 	const searchParams = useSearchParams();
 	const id = searchParams.get('id');
 
@@ -23,8 +25,17 @@ const ProductDetails = () => {
 		dispatch(fetchProductDetails(id));
 	}, [id]);
 
+	if (productLoading) {
+		return (
+			<section className={styles.products_loading_container}>
+				<CirclesWithBar height='100' width='100' color='#b88e2f' outerCircleColor='#b88e2f' innerCircleColor='#b88e2f' barColor='#b88e2f' ariaLabel='circles-with-bar-loading' wrapperStyle={{}} wrapperClass='' visible={true} />
+			</section>
+		);
+	}
+
 	return (
 		<div className={styles.productDetails_container}>
+			<ToastContainer />
 			<div className={styles.breadcrumb_container}>
 				<Breadcrumb />
 			</div>

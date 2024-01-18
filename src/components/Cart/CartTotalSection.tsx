@@ -24,11 +24,11 @@ const CartTotalSection = ({ cart }: Props) => {
 			<div className={styles.total_details}>
 				<div className={styles.subtotal}>
 					<p>Subtotal</p>
-					<p className={styles.subtotal_amount}>${subtotal}</p>
+					<p className={styles.subtotal_amount}>Rs. {subtotal}</p>
 				</div>
 				<div className={styles.subtotal}>
 					<p>Total</p>
-					<p className={styles.total_amount}>${total}</p>
+					<p className={styles.total_amount}>Rs. {total}</p>
 				</div>
 			</div>
 			<div className={styles.button_container}>

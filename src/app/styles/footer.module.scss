@@ -1,17 +1,48 @@
 @import 'colors.module';
+@import '_breakpoints.scss';
 
 .footer_container {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	padding: 2rem 10%;
+
+	@include xs {
+		padding: 2rem 1rem;
+	}
+
+	@include lg {
+		padding: 4rem 10%;
+	}
 
 	.footer_top_container {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+
 		padding: 1.5rem 0;
-		gap: 2rem;
+
 		// align-items: center;\
+
+		@include xs {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+			gap: 1rem;
+		}
+
+		@include base {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+
+		@include md {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@include lg {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 1rem;
+		}
+
+		@include xl {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			gap: 2rem;
+		}
 
 		.footer_address {
 			height: 100%;
