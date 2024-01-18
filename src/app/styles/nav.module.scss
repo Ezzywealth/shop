@@ -1,5 +1,6 @@
 @import 'colors.module';
 @import '_breakpoints.scss';
+@import '_button.scss';
 
 .nav_container {
 	display: flex;
@@ -177,10 +178,8 @@
 			gap: 1.5rem;
 
 			button {
+				@include btn(transparent, transparent, auto, 50%, 0.5rem 2rem, 1rem);
 				border-radius: 50px;
-				padding: 0.5rem 2rem;
-				background: transparent;
-				cursor: pointer;
 			}
 		}
 	}

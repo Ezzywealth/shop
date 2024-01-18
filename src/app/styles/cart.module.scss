@@ -1,5 +1,6 @@
 @import 'colors.module';
 @import '_breakpoints.scss';
+@import '_button.scss';
 
 .cart_section_mobile {
 	padding: 1rem;
@@ -92,19 +93,11 @@
 	}
 
 	button {
-		padding: 0.5rem 2rem;
-		border: 1px solid $primary-color-black;
-		border-radius: 15px;
-		background-color: transparent;
-		color: $primary-color-black;
-		font-size: 1.2rem;
-		font-weight: 600;
-		cursor: pointer;
+		@include btn(transparent, transparent, auto, 15px, 0.5rem 2rem, 1.2rem);
 	}
 }
 
 .cart_table_container {
-	display: flex;
 	gap: 2rem;
 	align-items: flex-start;
 	padding: 5rem 10%;
@@ -114,7 +107,7 @@
 	}
 
 	@include lg {
-		display: block;
+		display: flex;
 	}
 
 	.cart_table {
@@ -195,14 +188,7 @@
 		}
 
 		button {
-			padding: 0.5rem 2rem;
-			border: 1px solid $primary-color-black;
-			border-radius: 15px;
-			background-color: transparent;
-			color: $primary-color-black;
-			font-size: 1.2rem;
-			font-weight: 600;
-			cursor: pointer;
+			@include btn(transparent, transparent, auto, 15px, 0.5rem 2rem, 1.2rem);
 		}
 	}
 }

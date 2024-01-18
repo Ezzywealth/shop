@@ -33,8 +33,15 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, mainImage }) => {
 					</div>
 				))}
 			</div>
-			<div className={styles.main_image_container_sm}>
-				<Image src={selectedImage || ''} alt='Main Product' layout='fill' className={` ${mainImageLoading && 'shimmer'}`} onLoadingComplete={() => setMainImageLoading(false)} />
+			<div className={styles.main_image_container}>
+				<div className={styles.main_image_container_sm}>
+					<Image src={selectedImage || ''} alt='Main Product' layout='fill' className={` ${mainImageLoading && 'shimmer'}`} onLoadingComplete={() => setMainImageLoading(false)} />
+				</div>
+				<ul>
+					{imageGallery.map((image, index) => (
+						<li key={index} className={`${styles.main_image_dots} ${selectedImage === image && styles.selected_dot}`} onClick={() => setSelectedImage(image)}></li>
+					))}
+				</ul>
 			</div>
 			<div className={styles.main_image_container_lg}>
 				<Image src={selectedImage || ''} alt='Main Product' height={400} width={400} className={` ${mainImageLoading && 'shimmer'}`} onLoadingComplete={() => setMainImageLoading(false)} />
