@@ -30,11 +30,11 @@ const CartItemTable = ({ cart }: Props) => {
 							<Image height={40} width={40} src={item.thumbnail} alt={item.title} />
 						</td>
 						<td>{item.title}</td>
-						<td>Rs. {item.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
+						<td>Rs.{item.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
 						<td className={styles.quantity_value}>
 							<span>{item.quantity}</span>
 						</td>
-						<td className={styles.prize}>Rs. {(item.price * +item.quantity).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
+						<td className={styles.prize}>Rs.{(item.price * +item.quantity).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
 						<td>
 							<span onClick={() => handleRemoveItem(item.id)} className={styles.delete_icon}>
 								<DeleteIcon />

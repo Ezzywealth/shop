@@ -10,7 +10,7 @@ const HeroSection = ({ title }: Props) => {
 	return (
 		<section className={styles.hero_banner}>
 			<div className={styles.hero_item}>
-				<Image src='/assets/images/hero-logo.png' width={60} height={60} alt='hero-logo' />
+				<Image src='/assets/images/hero-logo.png' width={65} height={65} alt='hero-logo' />
 				<h2 className={styles.logo_text}>{title}</h2>
 				<Breadcrumb />
 			</div>

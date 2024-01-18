@@ -42,7 +42,7 @@
 
 		.quantity {
 			border: 1px solid $secondary-text-color;
-			padding: 0.1rem 1rem;
+			padding: 0rem 1rem;
 		}
 	}
 
@@ -58,8 +58,19 @@
 
 		.cart_mobile_bottom_amount {
 			color: $price-text-color;
-			font-size: 1rem;
-			font-weight: 500;
+			font-size: 1.2rem;
+			font-weight: 600;
+		}
+
+		.cart_mobile_bottom_buttons {
+			padding: 0.5rem 0;
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+
+			button {
+				@include btn(transparent, transparent, auto, 10px, 0.7rem 2.5rem, 1rem);
+			}
 		}
 	}
 }
@@ -100,7 +111,7 @@
 .cart_table_container {
 	gap: 2rem;
 	align-items: flex-start;
-	padding: 5rem 10%;
+	padding: 5rem 6%;
 
 	@include xs {
 		display: none;

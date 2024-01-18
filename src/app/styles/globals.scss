@@ -15,9 +15,12 @@ h4,
 h5,
 h6,
 ul,
-p {
+p,
+td,
+tr {
 	margin: 0;
 	padding: 0;
+	line-height: 104%;
 }
 
 .shimmer {
