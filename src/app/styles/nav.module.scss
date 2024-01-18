@@ -271,3 +271,76 @@
 		color: $price-text-color;
 	}
 }
+
+.drop_down_container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	height: 100vh;
+	background-color: #fff;
+	padding: 1.5rem 1rem;
+	box-sizing: border-box;
+	display: block;
+
+	@include lg {
+		display: none;
+	}
+
+	ul {
+		list-style: none;
+		font-size: 1rem;
+		font-weight: 500;
+		color: $primary-color-black;
+		gap: 1rem;
+		margin-top: 1rem;
+		box-sizing: border-box;
+
+		li {
+			border-bottom: 1px solid $secondary-text-color;
+			padding: 0.5rem 0;
+			font-weight: 500;
+		}
+
+		li:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+.open_drop_down {
+	overflow: hidden;
+	display: block;
+	animation: openDropDown 0.3s ease-in-out forwards;
+
+	@include lg {
+		display: none;
+	}
+}
+
+.close_drop_down {
+	// display: none;
+	animation: closeDropDown 0.3s ease-in-out forwards;
+	@include lg {
+		display: none;
+	}
+}
+
+@keyframes openDropDown {
+	from {
+		transform: translateY(-100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes closeDropDown {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-100%);
+	}
+}

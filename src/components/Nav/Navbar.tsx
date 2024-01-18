@@ -12,6 +12,8 @@ import Link from 'next/link';
 import CartModal from '../Cart/CartModal';
 import { toggleCartModal } from '@/Redux/Slices/cartSlice';
 import HarmburgerIcon from '@/shared/svgs/HarmburgerIcon';
+import DropDownMenu from './DropDownMenu';
+import { toggleMenu } from '@/Redux/Slices/helperslice';
 
 const Navbar = () => {
 	const dispatch = useDispatch();
@@ -25,11 +27,22 @@ const Navbar = () => {
 	const openCartModal = () => {
 		dispatch(toggleCartModal(true));
 	};
+
+	const openMenu = () => {
+		dispatch(toggleMenu(true));
+	};
+
+	const closeMenu = () => {
+		dispatch(toggleMenu(false));
+	};
 	return (
 		<nav className={styles.nav_container}>
+			<DropDownMenu isOpen={isMenuOpen} onClose={closeMenu} />
 			<section className={styles.nav_section}>
 				<div className={styles.harmburger_container}>
-					<HarmburgerIcon />
+					<span onClick={openMenu}>
+						<HarmburgerIcon />
+					</span>
 					<div className={styles.nav_rect}>.</div>
 				</div>
 				<ul className={styles.navlinks_container}>
