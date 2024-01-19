@@ -2,7 +2,6 @@
 import store from '@/Redux/Store/store';
 import React, { ReactNode } from 'react';
 import { Provider } from 'react-redux';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 type Props = {
