@@ -6,7 +6,7 @@ import LinkedIn from '@/shared/svgs/LinkedIn';
 import TwitterIcon from '@/shared/svgs/TwitterIcon';
 import { ProductProp } from '@/interfaces/typings';
 import HeartIcon from '@/shared/svgs/HeartIcon';
-import useProductDetailsHook from './hooks/useProductDetailsHook';
+import useProductDetailsHook from '../../hooks/useProductDetailsHook';
 
 type Props = {
 	productDetails: ProductProp | null;

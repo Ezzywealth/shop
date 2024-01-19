@@ -26,7 +26,6 @@ const Products = ({ products, productsLoading }: Props) => {
 					<Link key={product.id} href={`/shop/${product.title.toLowerCase().split(' ').join('-')}?id=${product.id}`}>
 						<li className={styles.product}>
 							<CustomImage imageSrc={product.thumbnail} alt={product.title} />
-							{/* <Image src={product.thumbnail} alt={product.title} layout='responsive' width={250} height={150} /> */}
 							<h4>{product.title}</h4>
 							<p>{`Rs. ${product.price.toFixed(2)}`}</p>
 						</li>

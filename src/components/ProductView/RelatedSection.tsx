@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import styles from '@/app/styles/productView.module.scss';
 
 const RelatedSection = () => {
-	const { productDetails, products, relatedProducts } = useSelector((state: RootState) => state.product);
+	const { relatedProducts } = useSelector((state: RootState) => state.product);
 
 	return (
 		<section className={styles.related_products_container}>

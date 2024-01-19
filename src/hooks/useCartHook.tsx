@@ -15,6 +15,7 @@ const useCartHook = () => {
 		const total = cart.reduce((acc, item) => acc + item.price * +item.quantity, 0);
 		setTotalPrice(total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 	}, [cart]);
+
 	return {
 		handleRemoveItem,
 		totalPrice,

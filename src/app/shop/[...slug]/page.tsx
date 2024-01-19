@@ -14,18 +14,19 @@ import RightTopView from '@/components/ProductView/RightTopView';
 import RightBottomView from '@/components/ProductView/RightBottomView';
 import { ToastContainer, toast } from 'react-toastify';
 import { CirclesWithBar } from 'react-loader-spinner';
+import useProductReducer from '@/hooks/useProductReducer';
 
 const ProductDetails = () => {
-	const dispatch = useAppDispatch();
-	const { productDetails, productLoading } = useSelector((state: RootState) => state.product);
+	const { handleFetchProduct, productDetails, productLoading } = useProductReducer();
 	const searchParams = useSearchParams();
 	const id = searchParams.get('id');
 
+	// a useEffect to fetch the product details when the id changes in the url or when the page loads
 	useEffect(() => {
 		if (id) {
-			dispatch(fetchProductDetails(id));
+			handleFetchProduct(id);
 		}
-	}, [id, dispatch]);
+	}, [id]);
 
 	if (productLoading) {
 		return (

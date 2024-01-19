@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import styles from '@/app/styles/cart.module.scss';
 import Image from 'next/image';
-import useCartHook from './hooks/useCartHook';
+import useCartHook from '../../hooks/useCartHook';
 import Breadcrumb from '../Nav/BreadCrumbs';
 import DeleteIcon from '@/shared/svgs/DeleteIcon';
 

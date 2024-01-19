@@ -11,9 +11,10 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/Redux/Store/store';
 import Link from 'next/link';
 import CartSectionMobile from './CartSectionMobile';
+import useCartHook from '@/hooks/useCartHook';
 
 const CartIndex = () => {
-	const { cart } = useSelector((state: RootState) => state.cart);
+	const { cart } = useCartHook();
 	return (
 		<div>
 			<div className={styles.cart_hero_section}>
@@ -29,8 +30,8 @@ const CartIndex = () => {
 			) : (
 				<>
 					<section className={styles.cart_table_container}>
-						<CartItemTable cart={cart} />
-						<CartTotalSection cart={cart} />
+						<CartItemTable />
+						<CartTotalSection />
 					</section>
 					<section className={styles.cart_section_mobile}>
 						<CartSectionMobile />

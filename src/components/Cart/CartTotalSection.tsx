@@ -2,21 +2,18 @@ import React, { useEffect } from 'react';
 import styles from '@/app/styles/cart.module.scss';
 import { ProductProp } from '@/interfaces/typings';
 import Link from 'next/link';
+import useCartHook from '../../hooks/useCartHook';
 
-type Props = {
-	cart: ProductProp[];
-};
-const CartTotalSection = ({ cart }: Props) => {
+const CartTotalSection = () => {
+	const { totalPrice } = useCartHook();
 	const [subtotal, setSubtotal] = React.useState('0');
 	const [total, setTotal] = React.useState('0');
-	console.log(cart);
 
+	// a useEffect to calculate the total and subtotal of the cart items when the cart changes
 	useEffect(() => {
-		const total = cart?.reduce((acc, item) => acc + item.price * +item.quantity, 0);
-		console.log(total);
-		setTotal(total?.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
-		setSubtotal(total?.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
-	}, [cart]);
+		setTotal(totalPrice);
+		setSubtotal(totalPrice);
+	}, [totalPrice]);
 
 	return (
 		<section className={styles.totals_container}>

@@ -4,13 +4,10 @@ import styles from '@/app/styles/cart.module.scss';
 import DeleteIcon from '@/shared/svgs/DeleteIcon';
 import { ProductProp } from '@/interfaces/typings';
 import Image from 'next/image';
-import useCartHook from './hooks/useCartHook';
+import useCartHook from '../../hooks/useCartHook';
 
-type Props = {
-	cart: ProductProp[];
-};
-const CartItemTable = ({ cart }: Props) => {
-	const { handleRemoveItem, totalPrice } = useCartHook();
+const CartItemTable = () => {
+	const { handleRemoveItem, cart } = useCartHook();
 	return (
 		<table className={styles.cart_table}>
 			<thead>

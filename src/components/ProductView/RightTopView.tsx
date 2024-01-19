@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StarRating from './StarRating';
 import { ProductProp } from '@/interfaces/typings';
 import styles from '@/app/styles/productView.module.scss';
-import useProductDetailsHook from './hooks/useProductDetailsHook';
+import useProductDetailsHook from '../../hooks/useProductDetailsHook';
 type Props = {
 	productDetails: ProductProp | null;
 };

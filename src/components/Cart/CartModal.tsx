@@ -5,7 +5,7 @@ import CloseCartIcon from '@/shared/svgs/CloseCartIcon';
 import Image from 'next/image';
 import ItemDeleteIcon from '@/shared/svgs/ItemDeleteIcon';
 import Link from 'next/link';
-import useCartHook from './hooks/useCartHook';
+import useCartHook from '../../hooks/useCartHook';
 
 type ModalProps = {
 	isOpen: boolean;
