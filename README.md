@@ -53,9 +53,9 @@ This project is an e-commerce platform designed to provide users with a seamless
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
+<!-- ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Click Here!!!](https://ezekiel-udiomuno-lendsqr-fe-test.vercel.app/)
+[Click Here!!!]() -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
