@@ -1,4 +1,3 @@
-import { create } from 'lodash';
 import { createSlice } from '@reduxjs/toolkit';
 import { CartStateSlice } from '@/interfaces/typings';
 import { toast } from 'react-toastify';
