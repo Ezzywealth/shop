@@ -1,7 +1,13 @@
-$text-link: blueviolet;
-$background-color: orange;
+$primary-color-black: #000;
+$filters-bg: #faf4f4;
+$services-description: #9f9f9f;
+$secondary-text-color: #9f9f9f;
+$border-color: #d9d9d9;
+$active_pag_bg: #fbebb5;
+$inactive_pag_bg: #fff9e5;
+$price-text-color: #b88e2f;
+$cart-total-bg-color: #fff9e5;
 
 :export {
-	colorLink: $text-link;
-	backgroundColor: $background-color;
+	primaryblack: $primary-color-black;
 }

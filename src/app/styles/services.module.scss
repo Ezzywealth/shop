@@ -1,0 +1,50 @@
+@import 'colors.module';
+@import '_breakpoints.scss';
+
+.services_bg {
+	background-color: $filters-bg;
+
+	box-sizing: border-box;
+
+	@include xs {
+		padding: 2rem 1rem;
+	}
+
+	@include base {
+		padding: 2rem 1.5rem;
+	}
+
+	@include lg {
+		padding: 3rem 10%;
+	}
+
+	ul {
+		display: grid;
+
+		list-style-type: none;
+		gap: 3rem;
+
+		@include xs {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+
+		@include base {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@include lg {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.title {
+			font-weight: 500;
+			font-size: 1.5rem;
+		}
+
+		.description {
+			color: $secondary-text-color;
+			font-size: 1rem;
+			margin-top: 0.5rem;
+		}
+	}
+}

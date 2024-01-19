@@ -1,0 +1,205 @@
+@import 'colors.module';
+@import '_breakpoints.scss';
+@import '_button.scss';
+
+.cart_section_mobile {
+	padding: 1rem;
+	padding-bottom: 3rem;
+
+	.cart_items {
+		min-height: 70vh;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		.cart_item {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+
+			.cart_item_left {
+				display: flex;
+				gap: 0.5rem;
+				align-items: center;
+			}
+		}
+	}
+	@include xs {
+		display: block;
+	}
+
+	@include lg {
+		display: none;
+	}
+
+	.cart_item_details {
+		.prize {
+			display: flex;
+			font-size: calc(14 / 16 * 1rem);
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.quantity {
+			border: 1px solid $secondary-text-color;
+			padding: 0rem 1rem;
+		}
+	}
+
+	.cart_mobile_bottom {
+		display: flex;
+		justify-content: space-between;
+
+		.cart_mobile_bottom_amount_title {
+			font-size: calc(12 / 16 * 1rem);
+			font-weight: 500;
+			color: $primary-color-black;
+		}
+
+		.cart_mobile_bottom_amount {
+			color: $price-text-color;
+			font-size: 1.2rem;
+			font-weight: 600;
+		}
+
+		.cart_mobile_bottom_buttons {
+			padding: 0.5rem 0;
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+
+			button {
+				@include btn(transparent, transparent, auto, 10px, 0.7rem 2.5rem, 1rem);
+			}
+		}
+	}
+}
+
+.cart_hero_section {
+	@include xs {
+		display: none;
+	}
+
+	@include lg {
+		display: contents;
+	}
+}
+
+.empty_cart_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 9rem 10%;
+
+	.empty_cart {
+		font-weight: 500;
+		@include xs {
+			font-size: 1rem;
+		}
+
+		@include lg {
+			font-size: 2rem;
+		}
+	}
+
+	button {
+		@include btn(transparent, transparent, auto, 15px, 0.5rem 2rem, 1.2rem);
+	}
+}
+
+.cart_table_container {
+	gap: 2rem;
+	align-items: flex-start;
+	padding: 5rem 6%;
+
+	@include xs {
+		display: none;
+	}
+
+	@include lg {
+		display: flex;
+	}
+
+	.cart_table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.cart_table thead {
+		background-color: $cart-total-bg-color;
+		font-weight: 500;
+	}
+
+	.cart_table th,
+	.cart_table td {
+		padding: 12px;
+		text-align: center;
+		font-size: 1rem;
+	}
+
+	tbody {
+		color: $secondary-text-color;
+
+		.prize {
+			color: $primary-color-black;
+		}
+
+		.delete_icon {
+			cursor: pointer;
+		}
+	}
+
+	.quantity_value {
+		height: 100%;
+
+		span {
+			border: 1px solid $secondary-text-color;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 16px;
+			width: 16px;
+			padding: 0.2rem;
+			font-size: 14px;
+			color: $primary-color-black;
+			transform: translateX(50%);
+			border-radius: 5px;
+		}
+	}
+
+	.totals_container {
+		background-color: $cart-total-bg-color;
+		padding: 1rem 2rem 3rem 2rem;
+		box-sizing: border-box;
+		min-width: 300px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+
+		.subtotal {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 1rem;
+			gap: 2rem;
+			font-weight: 500;
+
+			.total_amount {
+				color: $price-text-color;
+				font-weight: 500;
+				font-size: calc(18 / 16 * 1rem);
+			}
+
+			.subtotal_amount {
+				color: $secondary-text-color;
+				font-size: calc(14 / 16 * 1rem);
+			}
+		}
+
+		button {
+			@include btn(transparent, transparent, auto, 15px, 0.5rem 2rem, 1.2rem);
+		}
+	}
+}

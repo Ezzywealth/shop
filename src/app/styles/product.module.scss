@@ -1,0 +1,214 @@
+@import 'colors.module';
+@import '_breakpoints.scss';
+
+.filters_bg {
+	background-color: $filters-bg;
+	display: flex;
+	margin-top: 3rem;
+	align-items: center;
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 1rem;
+
+	.vertical_divider {
+		@include xs {
+			display: block;
+			width: 2px;
+			height: 20px;
+		}
+
+		@include lg {
+			display: none;
+		}
+	}
+
+	@include xs {
+		padding: 1rem 0.5rem;
+		position: fixed;
+		bottom: 0;
+		z-index: 100;
+		box-sizing: border-box;
+		gap: 0.5rem;
+	}
+
+	@include lg {
+		padding: 2rem 4rem;
+		position: static;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.showing {
+		@include xs {
+			display: none;
+		}
+
+		@include lg {
+			display: contents;
+		}
+	}
+
+	article {
+		display: flex;
+
+		box-sizing: border-box;
+
+		@include xs {
+			flex-direction: row-reverse;
+			gap: 0.5rem;
+		}
+
+		@include lg {
+			flex-direction: row;
+			gap: 1rem;
+		}
+
+		.sort_by {
+			span {
+				@include xs {
+					display: none;
+				}
+
+				@include lg {
+					display: contents;
+				}
+			}
+		}
+
+		div {
+			display: flex;
+			align-items: center;
+
+			@include xs {
+				gap: 0.4rem;
+			}
+
+			@include lg {
+				gap: 1rem;
+			}
+
+			.filter_text {
+				font-size: 16px;
+				font-weight: 400;
+				color: $primary-color-black;
+			}
+		}
+
+		.label_input {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+
+			.show_input {
+				width: 15px;
+				// height: 25px;
+				padding: 0.5rem 1rem;
+				color: $primary-color-black;
+			}
+
+			.sort_input {
+				// height: 25px;
+
+				border: none;
+				color: $primary-color-black;
+
+				@include xs {
+					width: auto;
+					background-color: transparent;
+					padding: 0.5rem 0;
+				}
+
+				@include lg {
+					padding: 0.5rem 1rem;
+					width: 100px;
+					background-color: #fff;
+				}
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			input {
+				border: none;
+			}
+
+			input:focus {
+				outline: none;
+			}
+		}
+	}
+}
+
+// styles for the loading spinner container
+.products_loading_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+	width: 100%;
+}
+
+.products {
+	display: grid;
+	list-style: none;
+	gap: 2rem;
+
+	@include xs {
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		padding: 3rem 1rem;
+	}
+
+	@include sm {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include lg {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		padding: 4rem 10%;
+	}
+
+	.product {
+		h4 {
+			font-weight: 400;
+		}
+
+		p {
+			font-weight: 500;
+		}
+	}
+
+	a {
+		text-decoration: none;
+		color: $primary-color-black;
+	}
+}
+
+.pagination_container {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	justify-content: center;
+	padding: 1rem 0;
+	margin-bottom: 3rem;
+
+	ul {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	button {
+		padding: 0.5rem 1rem;
+		border: none;
+		font-size: 1rem;
+	}
+
+	.pag_btn {
+		background-color: $inactive_pag_bg;
+	}
+
+	.active_btn {
+		background-color: $active_pag_bg;
+	}
+}

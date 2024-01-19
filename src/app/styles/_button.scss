@@ -1,0 +1,18 @@
+@import 'colors.module';
+
+@mixin btn($bg_color, $text_color, $min-width, $border_radius, $padding, $font_size) {
+	padding: $padding;
+	border: 1px solid $primary-color-black;
+	border-radius: 10px;
+	background-color: transparent;
+	color: $primary-color-black;
+	font-size: $font_size;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		background-color: darken($primary-color-black, 10%);
+		color: #fff;
+	}
+}

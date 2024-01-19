@@ -1,0 +1,47 @@
+@import 'colors.module';
+@import '_breakpoints.scss';
+
+.bread_container {
+	display: flex;
+	align-items: center;
+
+	.crumbs_container {
+		display: flex;
+		align-items: center;
+		list-style: none;
+		gap: 0.5rem;
+
+		.bread_links {
+			display: flex;
+			align-items: center;
+			font-size: 1rem;
+			text-transform: capitalize;
+
+			@include sm {
+				gap: 0.5rem;
+			}
+
+			@include md {
+				gap: 1rem;
+			}
+		}
+
+		.active_link {
+			color: $primary-color-black;
+		}
+
+		.inactive_link {
+			color: $secondary-text-color;
+		}
+
+		.home_link {
+			color: $primary-color-black;
+			font-weight: 600;
+		}
+
+		a {
+			color: $primary-color-black;
+			text-decoration: none;
+		}
+	}
+}
