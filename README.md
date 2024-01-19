@@ -87,15 +87,7 @@ In this project, we have adopted the use of `createAsyncThunk` from Redux Toolki
 3. **Redux DevTools Integration:**
    - `createAsyncThunk` integrates seamlessly with the Redux DevTools extension, providing a clear and detailed view of asynchronous actions, including their lifecycle and payload. This aids in debugging and understanding the flow of data fetching in the application.
 
-### Example Usage
-
-Here's an example of how we use `createAsyncThunk` for data fetching in one of our slices:
-
-````jsx
-// features
-
-
-## Conclusion
+### Conclusion
 
 Leveraging Redux Toolkit, specifically slices and the pre-configured store, has streamlined our state management process. The intuitive API and reduction in boilerplate code contribute to a more maintainable and efficient Redux implementation for our project.
 
@@ -129,7 +121,7 @@ To clone this repository to your desired folder, follow the steps below:
 ```sh
   cd my-folder
   git clone https://github.com/Ezzywealth/shop.git
-````
+```
 
 **Using GitHub Desktop app**
 
