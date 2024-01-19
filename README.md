@@ -8,7 +8,8 @@
   - [Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [Live Demo](#live-demo)
+  - [Redux Toolkit](#redux-toolkit)
+  <!-- - [Live Demo](#live-demo) -->
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -55,7 +56,7 @@ This project is an e-commerce platform designed to provide users with a seamless
 
 ## Redux Toolkit Implementation
 
-### Redux Toolkit Overview
+### Redux Toolkit Overview <a name='redux-toolkit'></a>
 
 Redux Toolkit is a set of tools that simplifies the Redux development experience. In this project, we've adopted Redux Toolkit for its built-in utilities, including the use of slices for reducer logic and an opinionated store setup that reduces boilerplate code.
 
