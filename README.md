@@ -9,7 +9,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [Redux Toolkit](#redux-toolkit)
-  <!-- - [Live Demo](#live-demo) -->
+  - [Live Demo](#live-demo)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -92,9 +92,11 @@ In this project, we have adopted the use of `createAsyncThunk` from Redux Toolki
 
 Leveraging Redux Toolkit, specifically slices and the pre-configured store, has streamlined our state management process. The intuitive API and reduction in boilerplate code contribute to a more maintainable and efficient Redux implementation for our project.
 
-<!-- ## 🚀 Live Demo <a name="live-demo"></a>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[Click Here!!!]() -->
+## 🚀 Live Demo <a name="live-demo"></a>
+
+[Click Here!!!](https://ezzy-shop.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
