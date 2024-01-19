@@ -127,6 +127,7 @@ You can deploy this project by:
 - [ ] **[Checkout page]**
 - [ ] **[About page]**
 - [ ] **[Contact page]**
+- [ ] **[Payment gateway]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
