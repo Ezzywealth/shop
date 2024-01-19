@@ -23,23 +23,14 @@
 
 		@include xs {
 			grid-template-columns: repeat(1, minmax(0, 1fr));
-			gap: 1rem;
+			gap: 2rem;
 		}
 
-		@include base {
-			grid-template-columns: repeat(1, minmax(0, 1fr));
-		}
-
-		@include md {
+		@include sm {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
 		@include lg {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-			gap: 1rem;
-		}
-
-		@include xl {
 			grid-template-columns: repeat(4, minmax(0, 1fr));
 			gap: 2rem;
 		}
@@ -51,6 +42,25 @@
 			justify-content: center;
 			color: $secondary-text-color;
 			flex-direction: column;
+
+			@include sm {
+				grid-column: 1 / 6;
+				column-span: 2;
+			}
+
+			@include lg {
+				grid-column: 1 / 2;
+			}
+		}
+
+		.privacy_section {
+			@include sm {
+				grid-column: 1 / 6;
+			}
+
+			@include lg {
+				grid-column: 4;
+			}
 		}
 
 		.header {

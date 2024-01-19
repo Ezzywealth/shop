@@ -368,7 +368,6 @@
 			display: grid;
 			box-sizing: border-box;
 			flex-wrap: wrap;
-
 			margin-top: 2rem;
 			margin-bottom: 2rem;
 			box-sizing: border-box;
@@ -377,6 +376,7 @@
 			.description_images_div {
 				position: relative;
 				height: 280px;
+				max-width: 450px;
 			}
 
 			@include xs {

@@ -4,10 +4,13 @@ import React from 'react';
 import styles from '@/app/styles/product.module.scss';
 import Link from 'next/link';
 import { CirclesWithBar } from 'react-loader-spinner';
+import CustomImage from './CustomImage';
+
 type Props = {
 	products: ProductProp[];
 	productsLoading: boolean;
 };
+
 const Products = ({ products, productsLoading }: Props) => {
 	if (productsLoading) {
 		return (
@@ -22,7 +25,8 @@ const Products = ({ products, productsLoading }: Props) => {
 				{products.map((product) => (
 					<Link key={product.id} href={`/shop/${product.title.toLowerCase().split(' ').join('-')}?id=${product.id}`}>
 						<li className={styles.product}>
-							<Image src={product.thumbnail} alt={product.title} layout='responsive' width={250} height={150} />
+							<CustomImage imageSrc={product.thumbnail} alt={product.title} />
+							{/* <Image src={product.thumbnail} alt={product.title} layout='responsive' width={250} height={150} /> */}
 							<h4>{product.title}</h4>
 							<p>{`Rs. ${product.price.toFixed(2)}`}</p>
 						</li>

@@ -31,7 +31,7 @@ const FooterSection = () => {
 						))}
 					</ul>
 				</div>
-				<div>
+				<div className={styles.privacy_section}>
 					<h3 className={styles.header}>Privacy Policies</h3>
 					<form action=''>
 						<input type='text' placeholder='Enter Your Email Address' />

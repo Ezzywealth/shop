@@ -26,17 +26,25 @@ const Filters = ({ startCount, endCount, totalItems }: Props) => {
 					</p>
 				</div>
 			</article>
-			<article>
+			<hr className={styles.vertical_divider} />
+			<article className={styles.input_container}>
 				<div>
 					<label htmlFor='' className={styles.label_input}>
 						Show
-						<input type='text' className={styles.show_input} />
+						<input type='text' defaultValue={16} className={styles.show_input} />
 					</label>
 				</div>
-				<div className={styles.short_by}>
+				<hr className={styles.vertical_divider} />
+				<div className={styles.sort_by}>
 					<label htmlFor='' className={styles.label_input}>
-						<span>Short By</span>
-						<input type='text' className={styles.short_input} />
+						<span>Sort By</span>
+						<select name='' id='' className={styles.sort_input}>
+							<option value=''>Default</option>
+							<option value=''>Price</option>
+							<option value=''>Name</option>
+							<option value=''>Rating</option>
+						</select>
+						{/* <input type='text' className={styles.short_input} /> */}
 					</label>
 				</div>
 			</article>
