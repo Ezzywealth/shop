@@ -4,7 +4,7 @@ import { CartStateSlice } from '@/interfaces/typings';
 import { toast } from 'react-toastify';
 
 const initialState: CartStateSlice = {
-	cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart') || '') : [],
+	cart: [],
 	showCartModal: false,
 };
 
@@ -32,8 +32,11 @@ const cartSlice = createSlice({
 			toast.success('item removed from cart');
 			localStorage.setItem('cart', JSON.stringify(state.cart));
 		},
+		fetchCart: (state, action) => {
+			state.cart = action.payload;
+		},
 	},
 });
 
 export default cartSlice.reducer;
-export const { addToCart, toggleCartModal, removeCartItem } = cartSlice.actions;
+export const { addToCart, toggleCartModal, removeCartItem, fetchCart } = cartSlice.actions;

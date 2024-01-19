@@ -4,21 +4,32 @@ import FavoriteIcon from '@/shared/svgs/FavoriteIcon';
 import SearchIcon from '@/shared/svgs/SearchIcon';
 import PersonIcon from '@/shared/svgs/PersonIcon';
 import { navlinks } from '@/utils/navlinksData';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '@/app/styles/nav.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/Redux/Store/store';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '@/Redux/Store/store';
 import Link from 'next/link';
 import CartModal from '../Cart/CartModal';
-import { toggleCartModal } from '@/Redux/Slices/cartSlice';
+import { fetchCart, toggleCartModal } from '@/Redux/Slices/cartSlice';
 import HarmburgerIcon from '@/shared/svgs/HarmburgerIcon';
 import DropDownMenu from './DropDownMenu';
 import { toggleMenu } from '@/Redux/Slices/helperslice';
 
 const Navbar = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const { cart, showCartModal } = useSelector((state: RootState) => state.cart);
 	const { isMenuOpen } = useSelector((state: RootState) => state.helper);
+
+	const fetchLocalStorage = () => {
+		if (window !== undefined) {
+			const items = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart') || '') : [];
+			dispatch(fetchCart(items));
+		}
+	};
+
+	useEffect(() => {
+		fetchLocalStorage();
+	}, []);
 
 	const onCloseCartModal = () => {
 		dispatch(toggleCartModal(false));

@@ -3,16 +3,16 @@ import Products from './Products';
 import Filters from './Filters';
 import { useDispatch, useSelector } from 'react-redux';
 import { buttonPagination, fetchProducts } from '@/Redux/Slices/productslice';
-import { RootState } from '@/Redux/Store/store';
+import { RootState, useAppDispatch } from '@/Redux/Store/store';
 import Pagination from '@/components/Pagination/Pagination';
 
 const ProductIndex = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const { products, filteredProducts, itemsPerPage, currentPage, totalPages, noOfItems, startCount, endCount, productsLoading } = useSelector((state: RootState) => state.product);
 
 	useEffect(() => {
 		dispatch(fetchProducts());
-	}, []);
+	}, [dispatch]);
 
 	const handlePagination = (page: number) => {
 		console.log(page);

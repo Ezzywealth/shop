@@ -1,7 +1,7 @@
-import { create } from 'lodash';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { ProductProp, ProductStateSlice } from '@/interfaces/typings';
 import axios from 'axios';
+import { RootState } from '../Store/store';
 
 const initialState: ProductStateSlice = {
 	products: [],
@@ -27,7 +27,13 @@ export const fetchProducts = createAsyncThunk('fetchProducts', async () => {
 	return data.products;
 });
 
-export const fetchProductDetails = createAsyncThunk('fetchProductDetails', async (id, thunkApi) => {
+export const fetchProductDetails = createAsyncThunk<
+	ProductProp,
+	string,
+	{
+		state: RootState;
+	}
+>('fetchProductDetails', async (id, thunkApi) => {
 	const { data } = await axios.get(`https://dummyjson.com/products/${id}`);
 	thunkApi.dispatch(fetchRelatedProducts(data.category));
 	return data;

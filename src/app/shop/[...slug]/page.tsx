@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { fetchProductDetails } from '@/Redux/Slices/productslice';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/Redux/Store/store';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '@/Redux/Store/store';
 import Breadcrumb from '@/components/Nav/BreadCrumbs';
 import ImageGallery from '@/components/ProductView/ImageGallery';
 import styles from '@/app/styles/productView.module.scss';
@@ -16,14 +16,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import { CirclesWithBar } from 'react-loader-spinner';
 
 const ProductDetails = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const { productDetails, productLoading } = useSelector((state: RootState) => state.product);
 	const searchParams = useSearchParams();
 	const id = searchParams.get('id');
 
 	useEffect(() => {
-		dispatch(fetchProductDetails(id));
-	}, [id]);
+		if (id) {
+			dispatch(fetchProductDetails(id));
+		}
+	}, [id, dispatch]);
 
 	if (productLoading) {
 		return (
